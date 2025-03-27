@@ -8,7 +8,7 @@ This Repository consists of:
 
 ## 🏗 Architecture
 
-```mermaid
+
 graph TD
     A[Sensor Node] -->|MQTT Publish| B[Broker]
     B -->|MQTT Subscribe| C[Monitor]
