@@ -80,18 +80,39 @@ Monitor client subscribes to broker and displays real-time data
 
 ThingSpeak stores data for visualization and analysis
 
-🛠 Troubleshooting
-Symptom	Possible Cause	Solution
-No data received	Incorrect topic	Verify topic patterns match
-Connection errors	Network issues	Check broker URL and connectivity
-ThingSpeak failures	Invalid API key	Verify write key permissions
-JSON decode errors	Malformed payload	Ensure consistent data format
+**Troubleshooting:**
 
+ThingSpeak Field Mapping
+Temperature → field1
+(Numeric values in °C)
 
-ThingSpeak API
-Endpoint: https://api.thingspeak.com/update
+Humidity → field2
+(Numeric values in % RH)
 
-Parameters:
+CO₂ Level → field3
+(Numeric values in ppm)
+
+**Key Notes:**
+Case-Sensitive: Fields must be lowercase (field1, not Field1)
+
+**Data Limits:**
+
+Max 8 fields per channel
+
+Field values support integers and floats
+
+Visualization:
+Each field automatically generates a separate graph in ThingSpeak
+
+API Reference:
+Update via URL:
+https://api.thingspeak.com/update?api_key=YOUR_KEY&field1=TEMP&field2=HUMIDITY&field3=CO2
+
+**Parameters:**
+Sensor Parameter	ThingSpeak Field	Data Type	Units	Example Value
+Temperature	        field1	            float	    °C	    23.5
+Humidity	        field2	            float	    % RH	45.7
+CO₂ Level	        field3	            integer	    ppm	    650
 
 api_key (required) which should be taken from ThingsSpeak
 
