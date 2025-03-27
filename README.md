@@ -6,10 +6,43 @@ This Repository consists of:
 - **Monitoring Client**: Subscribes and displays sensor data
 - **ThingSpeak Cloud**: Stores and visualizes historical data
 
+IoT Environmental Monitoring System Requirements
+**Python 3.x
+MQTT
+ThingSpeak**
+
+📝 Overview
+A comprehensive IoT solution for monitoring environmental conditions in real-time, featuring:
+
+MQTT-based sensor data transmission
+
+ThingSpeak cloud integration for data storage
+
+Multi-node support with wildcard subscriptions
+
+Real-time visualization of sensor metrics
+
+🖥️ System Components
+1. Sensor Node Simulator (virtual_station.py)
+Generates simulated environmental data (temperature, humidity, CO₂)
+
+Publishes to MQTT broker every 30 seconds
+
+Simultaneously sends data to ThingSpeak cloud
+
+2. Data Monitor (data_monitor.py)
+Subscribes to MQTT topics using wildcards
+
+Displays real-time sensor readings in console
+
+Handles multiple sensor nodes simultaneously
+
+3. Cloud Dashboard
+ThingSpeak for historical data visualization
+
+Web-based interface for remote monitoring
+
 ## 🏗 Architecture
-
-
-graph TD
     A[Sensor Node] -->|MQTT Publish| B[Broker]
     B -->|MQTT Subscribe| C[Monitor]
     A -->|HTTP POST| D[ThingSpeak]
@@ -37,19 +70,6 @@ Python 3.8+
 
 pip package manager
 
-Steps
-Clone the repository:
-
-bash
-Copy
-git clone https://github.com/yourusername/iot-sensor-monitor.git
-cd iot-sensor-monitor
-Install dependencies:
-
-bash
-Copy
-pip install -r requirements.txt
-
 
 Data Flow
 Sensor node generates simulated readings every 30 seconds
@@ -73,7 +93,7 @@ Endpoint: https://api.thingspeak.com/update
 
 Parameters:
 
-api_key (required)
+api_key (required) which should be taken from ThingsSpeak
 
 field1 (temperature)
 
